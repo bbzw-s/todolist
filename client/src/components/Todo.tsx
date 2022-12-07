@@ -7,15 +7,21 @@ interface TodoProps {
 }
 
 function Todo({ _id, title, done, onDelete, onSelect }: TodoProps) {
-  return (<>
-    <li>
-      <div>
-        <input type="checkbox" checked={done} onChange={() => onSelect(_id)} />
-        <span>{title}</span>
-        <button onClick={() => onDelete(_id)}>Löschen</button>
-      </div>
-    </li>
-  </>);
+  return (
+    <>
+      <li>
+        <div>
+          <input
+            type="checkbox"
+            checked={done}
+            onChange={() => onSelect(_id)}
+          />
+          <span>{title}</span>
+          <button onClick={() => onDelete(_id)}>Löschen</button>
+        </div>
+      </li>
+    </>
+  );
 }
 
 export default Todo;

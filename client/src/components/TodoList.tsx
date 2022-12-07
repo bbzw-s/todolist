@@ -7,15 +7,22 @@ interface TodoListProps {
 }
 
 function TodoList({ todos, onDelete, onSelect }: TodoListProps) {
-  const todoItems = todos.map((todo) =>
-    <Todo _id={todo.id} title={todo.title} done={todo.done}
-      onDelete={onDelete} onSelect={onSelect} key={todo.id} />)
+  const todoItems = todos.map((todo) => (
+    <Todo
+      _id={todo.id}
+      title={todo.title}
+      done={todo.done}
+      onDelete={onDelete}
+      onSelect={onSelect}
+      key={todo.id}
+    />
+  ));
 
-  return (<>
-    <ul>
-      {todoItems}
-    </ul>
-  </>);
+  return (
+    <>
+      <ul>{todoItems}</ul>
+    </>
+  );
 }
 
 export default TodoList;
