@@ -3,10 +3,15 @@ import cors from "cors";
 import morgan from "morgan";
 
 import todosRouter from "./todos/todos.router";
+import Todo from "./todos/todos.model";
 
 const SERVER_PORT = 5002;
 
 const app: Express = express();
+
+new Todo("hello").save();
+new Todo("world").save();
+new Todo("eier").save();
 
 // CORS Middleware
 app.use(cors());
