@@ -1,0 +1,73 @@
+:root {
+    --background: white;
+    --textcolor: black;
+    --elements-background: rgb(200 200 200);
+}
+
+body {
+    background: var(--background);
+    color: var(--textcolor);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+button {
+    outline: none;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 12px;
+    min-width: 120px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    opacity: .7;
+}
+
+.todos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.todos-list div {
+    width: calc(100% - 30px);
+    max-width: 630px;
+    margin: 0 auto 10px;
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--elements-background);
+    display: grid;
+    grid-template-columns: 30px 1fr 120px;
+    align-items: center;
+    justify-items: start;
+    animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31);
+}
+
+.todos-list div span:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(.6);
+        opacity: 0
+    }
+    60% {
+        transform: scale(1.03);
+        opacity: 1
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --background: rgb(53 53 53);
+        --textcolor: white;
+        --elements-background: rgb(32 33 36);
+    }
+}

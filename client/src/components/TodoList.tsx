@@ -20,7 +20,7 @@ function TodoList({ todos, onDelete, onSelect }: TodoListProps) {
 
   return (
     <>
-      <ul>{todoItems}</ul>
+      <ul className="todos-list">{todoItems}</ul>
     </>
   );
 }
