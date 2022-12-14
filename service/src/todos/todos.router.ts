@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { getAllTodos } from "./todos.controller";
+import {
+  getAllTodos,
+  updateTodo
+} from "./todos.controller";
 
 export default Router()
-  .get("/", getAllTodos);
+  .get("/", getAllTodos)
+  .put("/:id", updateTodo);
