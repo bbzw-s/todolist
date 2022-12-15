@@ -16,13 +16,16 @@ button {
     border: none;
     padding: 10px 12px;
     border-radius: 12px;
-    min-width: 120px;
     cursor: pointer;
     transition: .3s;
 }
 
 button:hover {
     opacity: .7;
+}
+
+button svg {
+    height: 24px;
 }
 
 .todos-list {
@@ -40,14 +43,10 @@ button:hover {
     border-radius: 15px;
     background: var(--elements-background);
     display: grid;
-    grid-template-columns: 30px 1fr 120px;
+    grid-template-columns: 30px 1fr 56px 46px;
     align-items: center;
     justify-items: start;
     animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31);
-}
-
-.todos-list div span:hover {
-    text-decoration: underline;
 }
 
 @keyframes fadeIn {
