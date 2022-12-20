@@ -1,10 +1,9 @@
-import express, { Express, NextFunction } from "express";
+import express, { Express } from "express";
 import cors from "cors";
 import morgan from "morgan";
 
 import todosRouter from "./todos/todos.router";
 import Todo from "./todos/todos.model";
-import { createTodo } from "./todos/todos.controller";
 
 const SERVER_PORT = 5002;
 
