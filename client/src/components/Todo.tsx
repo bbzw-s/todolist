@@ -3,10 +3,10 @@ interface TodoProps {
   title: string;
   done: boolean;
   onDelete: (id: string) => void;
-  onSelect: (id: string) => void;
+  onUpdate: (id: string, data: Todo) => void;
 }
 
-function Todo({ _id, title, done, onDelete, onSelect }: TodoProps) {
+function Todo({ _id, title, done, onDelete, onUpdate }: TodoProps) {
   return (
     <>
       <li>
@@ -14,9 +14,9 @@ function Todo({ _id, title, done, onDelete, onSelect }: TodoProps) {
           <input
             type="checkbox"
             checked={done}
-            onChange={() => onSelect(_id)}
+            onChange={(e) => onUpdate(_id, { title, done: e.target.checked, id: _id })}
           />
-          <span>{title}</span>
+          <span style={{textDecoration: done ? 'line-through' : 'none'}}>{title}</span>
           <button onClick={() => onDelete(_id)}>Löschen</button>
         </div>
       </li>
