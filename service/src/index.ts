@@ -1,9 +1,10 @@
-import express, { Express } from "express";
+import express, { Express, NextFunction } from "express";
 import cors from "cors";
 import morgan from "morgan";
 
 import todosRouter from "./todos/todos.router";
 import Todo from "./todos/todos.model";
+import { createTodo } from "./todos/todos.controller";
 
 const SERVER_PORT = 5002;
 
@@ -21,6 +22,8 @@ app.use(morgan("combined"));
 
 // URL Encoding Middleware
 app.use(express.urlencoded({ extended: false }));
+
+app.use(express.json())
 
 app.use("/todos", todosRouter);
 
