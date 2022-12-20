@@ -43,14 +43,14 @@ button:hover {
     grid-template-columns: 30px 1fr 120px;
     align-items: center;
     justify-items: start;
-    animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31);
+    /* animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31); */
 }
 
 .todos-list div span:hover {
     text-decoration: underline;
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     0% {
         transform: scale(.6);
         opacity: 0
@@ -62,7 +62,7 @@ button:hover {
     100% {
         transform: scale(1)
     }
-}
+} */
 
 @media (prefers-color-scheme: dark) {
      :root {
