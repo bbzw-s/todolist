@@ -24,6 +24,7 @@ button {
 
 button:hover {
     opacity: .7;
+    transform: scale(1.1);
 }
 
 button svg {
@@ -45,15 +46,45 @@ button svg {
     background: var(--elements-background);
     box-shadow: var(--shadow);
     display: grid;
-    grid-template-columns: 30px 1fr 56px 46px;
+    grid-template-columns: 30px 1fr 48px;
     align-items: center;
     justify-items: start;
     /* animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31); */
 }
 
+.todos-list button {
+    width: 48px;
+    height: 48px;
+}
+
 .todos-list div span:hover {
     text-decoration: underline;
 }
+
+.addTodo {
+    margin-bottom: 10px;
+}
+
+.addTodo input {
+    max-width: calc(630px - 117px);
+    width: 100%;
+    padding: 8px 15px;
+    margin: 0 20px 0 0;
+    border: 2.5px solid var(--elements-background);
+    border-radius: 12px;
+    background-color: var(--elements-background);
+    color: var(--textcolor);
+    box-shadow: var(--shadow);
+    outline: none;
+    transition: .3s;
+}
+
+.addTodo input:hover,
+.addTodo input:focus {
+    opacity: .8;
+    border: 2.5px solid var(--textcolor);
+}
+
 
 /* @keyframes fadeIn {
     0% {

@@ -14,8 +14,8 @@ function TodoCreateForm({ onNewTodo }: TodoCreateFormProps) {
   }
 
   return (
-    <form onSubmit={onSubmitTodo}>
-      <input type="text" name="todo"
+    <form className="addTodo" onSubmit={onSubmitTodo}>
+      <input placeholder="Todo hinzufügen" type="text" name="todo"
         value={todoName} onChange={(e) => setTodoName(e.target.value)} />
       <button>Hinzufügen</button>
     </form>

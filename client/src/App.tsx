@@ -18,8 +18,8 @@ function App() {
   return (
     <>
       <h1>Todo Liste</h1>
-      <div>{loading ? "Todos werden geladen..." : todoList}</div> 
       <TodoCreateForm onNewTodo={create} />
+      <div>{loading ? "Todos werden geladen..." : todoList}</div>
     </>
   );
 }
