@@ -9,9 +9,10 @@ const SERVER_PORT = 5002;
 
 const app: Express = express();
 
-new Todo("hello").save();
-new Todo("world").save();
-new Todo("eier").save();
+// Beispiel Todos
+new Todo("Fenster putzen").save();
+new Todo("Müll rausbringen").save();
+new Todo("Hausaufgaben machen").save();
 
 // CORS Middleware
 app.use(cors());
@@ -22,6 +23,7 @@ app.use(morgan("combined"));
 // URL Encoding Middleware
 app.use(express.urlencoded({ extended: false }));
 
+// JSON Middleware
 app.use(express.json())
 
 app.use("/todos", todosRouter);

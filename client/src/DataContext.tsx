@@ -33,9 +33,12 @@ export const TodosDataProvider = ({ children }: any) => {
     // Datenabfrage festgehalten, falls einer auftreten sollte.
     const [error, setError] = useState(null);
 
-    // Mit useEffect wird Verhindert, dass die Datenabfrage nur 
+    // Mit useEffect wird versichert, dass die Datenabfrage nur 
     // beim ersten Laden der Seite getätigt wird.
+    // Notiz: Die folgende Logik ist bei allen Abfragen relativ ähnlich, daher können die folgenden Beschreibungen
+    // auf alle Abfragen angewandt werden.
     useEffect(() => {
+        // Die Datenabfrage beginnt, daher wird die Lade-Zustandsvariable auf true gesetzt.
         setLoading(true);
 
         // Hier werden die Daten von der API abgegfragt.
@@ -43,15 +46,20 @@ export const TodosDataProvider = ({ children }: any) => {
         // mit der man in React reaktiven Zustand der Applikation managen kann.
         fetch(API_URL)
         .then((res) => {
-            if (!res.ok) throw new Error("Bogos :(");
+            // Wenn das Resultat nicht 'ok' ist, wird ein Fehler ausgelöst.
+            if (!res.ok) throw new Error("Todos konnten nicht geladen werden.");
+            // Ansonsten wird das Resultat zu JSON geparsed und zurückgegeben.
             return res.json();
         })
+        // Die Todos werden nun per setTodos in der richtigen Zustandsvariable gespeichert.
         .then((data) => setTodos(data))
+        // Falls ein Fehler auftritt, wird dieser in der entsprechenden Zustandsvariablen gespeichert.
         .catch((err) => setError(err))
+        // Da die Datenabfrage nun beendet ist, kann die Lade-Zustandsvariable wieder auf false gesetzt werden.
         .finally(() => setLoading(false));
-
     }, []);
 
+    // Abfrage zum erstellen eines neuen Todos
     const create = (todoName: string) => {
         setLoading(true);
 
@@ -78,9 +86,11 @@ export const TodosDataProvider = ({ children }: any) => {
         .finally(() => setLoading(false));
   }
 
+  // Abfrage zum Löschen eines Todos
     const deleteById = (id: string) => {
     }
 
+    // Abfrage zum Updaten eines Todos
     const updateById = (id: string, data: Todo) => {
         setLoading(true);
 

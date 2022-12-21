@@ -15,6 +15,7 @@ export default class Todo {
 
   save() {
     todos.push(this);
+    console.log(todos);
   }
 
   static delete(id: string) {
@@ -22,15 +23,18 @@ export default class Todo {
       todos.findIndex((t) => t.id === id),
       1
     );
+    console.log(todos);
   }
 
   static update(id: string, todo: Todo) {
     todos.map((t) => {
       if (t.id === id) return { ...todo, id: t.id };
     });
+    console.log(todos);
   }
 
   static getAll(): Todo[] {
+    console.log(todos);
     return todos;
   }
 }
