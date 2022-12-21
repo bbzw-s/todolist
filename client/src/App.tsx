@@ -10,6 +10,11 @@ function App() {
     <TodoList todos={todos} onDelete={deleteById} onUpdate={updateById} />
   );
 
+  const deleteDone = () => {
+    todos.filter((t) => t.done === true).map((t) => deleteById(t.id));
+    window.location.reload();
+  }
+
   if (error)
     return (<p>Es ist ein Fehler aufgetreten.</p>);
 
@@ -18,6 +23,7 @@ function App() {
       <h1>Todo Liste</h1>
       <TodoCreateForm onNewTodo={create} />
       <div>{loading ? "Todos werden geladen..." : todoList}</div>
+      <button onClick={deleteDone}>Erledigte löschen</button>
     </>
   );
 }
