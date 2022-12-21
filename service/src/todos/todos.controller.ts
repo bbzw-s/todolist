@@ -29,3 +29,11 @@ export const updateTodo = (req: Request, res: Response) => {
   Todo.update(todoId, new Todo(newTodo.title, newTodo.done));
   res.status(200).send();
 };
+
+export const deleteTodo = (req: Request, res: Response) => {
+  const todoId = req.params.id;
+  if (!todoId) res.status(400).send();
+
+  Todo.delete(todoId);
+  res.status(200).send();
+};
