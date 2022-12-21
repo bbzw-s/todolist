@@ -3,8 +3,6 @@ import TodoList from "./components/TodoList";
 import TodoCreateForm from "./components/TodoCreateForm";
 import { useTodos } from "./DataContext";
 
-const API_URL = "http://localhost:5002/todos";
-
 function App() {
   const { todos, loading, error, create, updateById, deleteById } = useTodos();
 

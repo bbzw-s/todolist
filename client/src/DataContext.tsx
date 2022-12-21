@@ -75,7 +75,7 @@ export const TodosDataProvider = ({ children }: any) => {
             body: JSON.stringify(body)
         })
         .then((res) => {
-            if (!res.ok) throw new Error("Oh no :(");
+            if (!res.ok) throw new Error("Todo konnte nicht erstellt werden.");
             return res.json();
         })
         .then((data) => {
@@ -88,6 +88,14 @@ export const TodosDataProvider = ({ children }: any) => {
 
   // Abfrage zum Löschen eines Todos
     const deleteById = (id: string) => {
+        setLoading(true);
+
+        fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+        }).then((res) => {
+            if (!res.ok) throw new Error("Todo konnte nicht gelöscht werden.");
+            setTodos(todos.filter(t => t.id !== id));
+        }).catch((err) => setError(err)).finally(() => setLoading(false));
     }
 
     // Abfrage zum Updaten eines Todos
