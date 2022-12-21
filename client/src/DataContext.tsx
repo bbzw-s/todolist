@@ -79,6 +79,14 @@ export const TodosDataProvider = ({ children }: any) => {
   }
 
     const deleteById = (id: string) => {
+        setLoading(true);
+
+        fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+        }).then((res) => {
+            if (!res.ok) throw new Error("Todo konnte nicht gelöscht werden.");
+            setTodos(todos.filter(t => t.id !== id));
+        }).catch((err) => setError(err)).finally(() => setLoading(false));
     }
 
     const updateById = (id: string, data: Todo) => {
