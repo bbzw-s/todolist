@@ -26,7 +26,7 @@ export const updateTodo = (req: Request, res: Response) => {
   } = req.body;
   if (!newTodo) res.status(400).send();
 
-  Todo.update(todoId, new Todo(newTodo.title, newTodo.done));
+  Todo.update(todoId, newTodo.done);
   res.status(200).send();
 };
 

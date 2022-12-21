@@ -1,11 +1,11 @@
 import { v4 as uuid } from "uuid";
 
-const todos: Todo[] = [];
+let todos: Todo[] = [];
 
 export default class Todo {
   public readonly id: string;
   public readonly title: string;
-  public readonly done: boolean;
+  public done: boolean;
 
   constructor(title: string, done: boolean = false) {
     this.id = uuid();
@@ -26,9 +26,14 @@ export default class Todo {
     console.log(todos);
   }
 
-  static update(id: string, todo: Todo) {
-    todos.map((t) => {
-      if (t.id === id) return { ...todo, id: t.id };
+  static update(id: string, done: boolean) {
+    console.log(id);
+    todos = todos.map((t) => {
+      if (t.id === id) {
+        t.done = done;
+        return t;
+      };
+      return t;
     });
     console.log(todos);
   }
