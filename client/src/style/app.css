@@ -2,6 +2,7 @@
     --background: white;
     --textcolor: black;
     --elements-background: rgb(200 200 200);
+    --shadow: 2px 2px 3px -1px black;
 }
 
 body {
@@ -14,15 +15,19 @@ body {
 button {
     outline: none;
     border: none;
-    padding: 10px 12px;
     border-radius: 12px;
-    min-width: 120px;
+    padding: 10px 12px;
     cursor: pointer;
     transition: .3s;
+    box-shadow: var(--shadow);
 }
 
 button:hover {
     opacity: .7;
+}
+
+button svg {
+    height: 24px;
 }
 
 .todos-list {
@@ -35,12 +40,12 @@ button:hover {
     width: calc(100% - 30px);
     max-width: 630px;
     margin: 0 auto 10px;
-    display: block;
     padding: 15px;
     border-radius: 15px;
     background: var(--elements-background);
+    box-shadow: var(--shadow);
     display: grid;
-    grid-template-columns: 30px 1fr 120px;
+    grid-template-columns: 30px 1fr 56px 46px;
     align-items: center;
     justify-items: start;
     /* animation: fadeIn .5s cubic-bezier(0.25, 0.1, 0.66, 1.31); */
@@ -69,5 +74,6 @@ button:hover {
         --background: rgb(53 53 53);
         --textcolor: white;
         --elements-background: rgb(32 33 36);
+        --shadow: 2px 2px 3px -2px black;
     }
 }
